@@ -1,4 +1,4 @@
-// models/application.js
+// Schema representing a user's application to a specific job.
 const mongoose = require("mongoose");
 
 const applicationSchema = new mongoose.Schema({
@@ -12,11 +12,14 @@ const applicationSchema = new mongoose.Schema({
     ref: "User",
     required: true
   },
+
   resume: {
     type: String,
     required: [true, "Resume is required"]
   },
+
   coverLetter: String,
+  
   status: {
     type: String,
     enum: ["pending", "reviewed", "accepted", "rejected"],
