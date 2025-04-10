@@ -1,8 +1,9 @@
-// models/user.js
+// A schema representing the users of the app {mployer and the jobseeker}
 const mongoose = require("mongoose");
-const validator = require("validator");
+const validator = require("validator"); //module for validating the email
 
 const userSchema = new mongoose.Schema({
+
   name: {
     type: String,
     required: [true, "Please enter your name"],

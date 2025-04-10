@@ -96,9 +96,7 @@ git clone https://github.com/yourusername/job-recruitment-api.git
 cd job-recruitment-api
 npm install
 ```
-
-
-
+ 
 ---
 
 ## 👨‍💻 Author
