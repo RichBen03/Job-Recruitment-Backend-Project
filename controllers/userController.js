@@ -6,12 +6,17 @@ const AppError = require("../utils/appError");
 exports.register = async (req, res) => {
   const { name, email, password, role } = req.body;
   try {
+    // checks for an existing user by filtering a specific email in the db
     const existing = await User.findOne({ email });
     if (existing) return res.status(400).json({ message: "User exists" });
 
+    //hashes the password using the bcryptjs
     const hashed = await bcrypt.hash(password, 10);
+
+    // creates a user and stores the password in a hashed format in the db
     const newUser = await User.create({ name, email, password: hashed, role });
 
+    //assigns a token to the newly created user 
     const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET, { expiresIn: "1d" });
     res.status(201).json({ token, user: { id: newUser._id, name, email, role } });
   } catch (err) {
@@ -20,12 +25,12 @@ exports.register = async (req, res) => {
   }
 };
 
-// controllers/userController.js
+
 exports.login = async (req, res, next) => {
   const { email, password } = req.body;
   
   try {
-    // Explicitly select password field
+    
     const user = await User.findOne({ email }).select('+password');
     
     if (!user || !(await bcrypt.compare(password, user.password))) {
