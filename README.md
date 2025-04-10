@@ -97,42 +97,7 @@ cd job-recruitment-api
 npm install
 ```
 
-### 2. Configure Environment
-Create a `.env` file:
-```env
-PORT=5000
-MONGO_URI=mongodb://localhost:27017/job-recruitment-db
-JWT_SECRET=your_jwt_secret
-JWT_EXPIRES_IN=1d
-CLOUDINARY_NAME=your_cloud_name
-CLOUDINARY_KEY=your_key
-CLOUDINARY_SECRET=your_secret
-```
 
-### 3. Run Server
-```bash
-npm run dev
-# or
-node server.js
-```
-
----
-
-## ✅ Future Improvements
-- Admin panel & dashboards
-- Email verification and password reset
-- Tests using Jest + Supertest
-- Logging and monitoring (Winston + Sentry)
-
----
-
-## 📃 License
-MIT - Open to use and adapt
-
----
-
-## 🤝 Contributing
-PRs and suggestions are welcome. Please open an issue to discuss before contributing major changes.
 
 ---
 
@@ -142,8 +107,6 @@ Rich Mwendwa
 ---
 
 ## 📬 Contact
-richben@gmail.com
+richmwendwa03@gmail.com
 
 ---
-
-_This project is a great starting point for aspiring backend developers building secure, scalable APIs._
